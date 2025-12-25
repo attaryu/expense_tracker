@@ -23,9 +23,11 @@ class _AppShellState extends State<AppShell> {
       bottomNavigationBar: SizedBox(
         height: 65,
         child: BottomNavigationBar(
-          onTap: (value) => setState(() {
-            _currentIndex = value;
-          }),
+          currentIndex: _currentIndex,
+          onTap: (value) => setState(() => _currentIndex = value),
+          unselectedFontSize: 10,
+          selectedFontSize: 10,
+          iconSize: 26,
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(
@@ -33,10 +35,6 @@ class _AppShellState extends State<AppShell> {
               label: 'History',
             ),
           ],
-          selectedItemColor: Colors.black,
-          unselectedFontSize: 10,
-          selectedFontSize: 10,
-          iconSize: 26,
         ),
       ),
       floatingActionButton: FloatingActionButton(
