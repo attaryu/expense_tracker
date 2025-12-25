@@ -1,4 +1,4 @@
-import 'package:expense_tracker/screens/add_transaction_screen.dart';
+import 'package:expense_tracker/screens/add_expense_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppShell extends StatefulWidget {
@@ -41,7 +41,7 @@ class _AppShellState extends State<AppShell> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AddTransactionScreen()),
+            MaterialPageRoute(builder: (context) => AddExpenseScreen()),
           );
         },
         shape: CircleBorder(),

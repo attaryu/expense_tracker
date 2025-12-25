@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-class AddTransactionScreen extends StatefulWidget {
-  const AddTransactionScreen({super.key});
+class AddExpenseScreen extends StatefulWidget {
+  const AddExpenseScreen({super.key});
 
   @override
-  State<AddTransactionScreen> createState() => _AddTransactionScreenState();
+  State<AddExpenseScreen> createState() => _AddExpenseScreenState();
 }
 
-class _AddTransactionScreenState extends State<AddTransactionScreen> {
+class _AddExpenseScreenState extends State<AddExpenseScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final DateFormat formatter = DateFormat('yyyy-MM-dd');
 
