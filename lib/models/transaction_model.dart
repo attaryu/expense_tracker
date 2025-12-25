@@ -1,5 +1,4 @@
 class TransactionModel {
-  final bool isIncome;
   final String id;
   final double amount;
   final String description;
@@ -7,7 +6,6 @@ class TransactionModel {
   final DateTime date;
 
   TransactionModel({
-    required this.isIncome,
     required this.amount,
     required this.description,
     required this.category,

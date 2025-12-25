@@ -21,7 +21,6 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
   final TextEditingController amountController = TextEditingController();
   final TextEditingController descriptionController = TextEditingController();
   final TextEditingController categoryController = TextEditingController();
-  final List<bool> _isSelected = [true, false];
 
   @override
   Widget build(BuildContext context) {
@@ -41,49 +40,20 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Add New Transaction',
+                    'Add New Expense',
                     style: Theme.of(context).textTheme.titleLarge,
                   ),
 
                   SizedBox(height: 8),
 
                   Text(
-                    'Enter the details below to help you keep track of your transaction!',
+                    'Enter the details below to help you keep track of your expenses!',
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ],
               ),
 
               SizedBox(height: 32),
-
-              LayoutBuilder(
-                builder: (context, constraints) => ToggleButtons(
-                  constraints: BoxConstraints(
-                    minHeight: 40,
-                    minWidth: (constraints.maxWidth / 2) - 3,
-                  ),
-                  isSelected: _isSelected,
-                  onPressed: (int index) {
-                    setState(() {
-                      for (int i = 0; i < _isSelected.length; i++) {
-                        _isSelected[i] = i == index;
-                      }
-                    });
-                  },
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text('Income'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text('Expense'),
-                    ),
-                  ],
-                ),
-              ),
-
-              SizedBox(height: 20),
 
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -254,13 +224,12 @@ class _AddTransactionScreenState extends State<AddTransactionScreen> {
                         description: descriptionController.text,
                         category: categoryController.text,
                         date: formatter.parse(datePickerController.text),
-                        isIncome: _isSelected[0],
                       ),
                     );
 
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text('Transaction Saved'),
+                        content: Text('Expense Saved'),
                         duration: Duration(seconds: 1),
                       ),
                     );

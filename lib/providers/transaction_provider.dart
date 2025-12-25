@@ -6,12 +6,9 @@ class TransactionProvider extends ChangeNotifier {
 
   List<String> get categories =>
       _transactions.map((transaction) => transaction.category).toSet().toList();
-  double get totalIncome => _calculateTotal(isIncome: true);
-  double get totalExpense => _calculateTotal(isIncome: false);
-
-  double _calculateTotal({required bool isIncome}) {
+  
+  double get totalExpense {
     return _transactions
-        .where((transaction) => transaction.isIncome == isIncome)
         .fold(0.0, (total, transaction) => total + transaction.amount);
   }
 
