@@ -1,6 +1,6 @@
 import 'package:expense_tracker/app_shell.dart';
 import 'package:expense_tracker/core/themes/default.dart';
-import 'package:expense_tracker/providers/transaction_provider.dart';
+import 'package:expense_tracker/providers/expense_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,7 +14,7 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => TransactionProvider(),
+      create: (context) => ExpenseProvider(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: buildTheme(),

@@ -1,5 +1,5 @@
-import 'package:expense_tracker/models/transaction_model.dart';
-import 'package:expense_tracker/providers/transaction_provider.dart';
+import 'package:expense_tracker/models/expense_model.dart';
+import 'package:expense_tracker/providers/expense_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
@@ -24,8 +24,10 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final TransactionProvider transactionProvider =
-        Provider.of<TransactionProvider>(context, listen: false);
+    final ExpenseProvider expenseProvider = Provider.of<ExpenseProvider>(
+      context,
+      listen: false,
+    );
 
     return Scaffold(
       appBar: AppBar(leading: BackButton()),
@@ -161,7 +163,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                       if (textEditingValue.text.isEmpty) {
                         return const Iterable<String>.empty();
                       }
-                      return transactionProvider.categories.where(
+                      return expenseProvider.categories.where(
                         (category) => category.toLowerCase().contains(
                           textEditingValue.text.toLowerCase(),
                         ),
@@ -218,8 +220,8 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
               ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState?.validate() ?? false) {
-                    transactionProvider.add(
-                      TransactionModel(
+                    expenseProvider.add(
+                      ExpenseModel(
                         amount: double.parse(amountController.text),
                         description: descriptionController.text,
                         category: categoryController.text,
