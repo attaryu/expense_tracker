@@ -232,7 +232,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text('Expense Saved'),
-                        duration: Duration(seconds: 1),
+                        duration: Duration(seconds: 3),
                       ),
                     );
 
