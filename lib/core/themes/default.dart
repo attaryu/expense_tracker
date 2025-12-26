@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 ThemeData buildTheme() {
-  final Color primaryColor = Color(0xFF181815);
-  final Color secondaryColor = Color(0xFFF8F9FA);
+  final primaryColor = Color(0xFF181815);
+  final secondaryColor = Color(0xFFF8F9FA);
 
   return ThemeData(
     textTheme: GoogleFonts.poppinsTextTheme().copyWith(

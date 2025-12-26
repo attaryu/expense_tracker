@@ -13,21 +13,21 @@ class AddExpenseScreen extends StatefulWidget {
 }
 
 class _AddExpenseScreenState extends State<AddExpenseScreen> {
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final DateFormat formatter = DateFormat('yyyy-MM-dd');
+  final _formKey = GlobalKey<FormState>();
+  final formatter = DateFormat('yyyy-MM-dd');
 
-  final TextEditingController datePickerController = TextEditingController(
+  final datePickerController = TextEditingController(
     text: DateFormat('yyyy-MM-dd').format(DateTime.now()),
   );
-  final TextEditingController amountController = TextEditingController();
-  final TextEditingController descriptionController = TextEditingController();
-  final TextEditingController categoryController = TextEditingController();
+  final amountController = TextEditingController();
+  final descriptionController = TextEditingController();
+  final categoryController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
 
-    final ExpenseProvider expenseProvider = Provider.of<ExpenseProvider>(
+    final expenseProvider = Provider.of<ExpenseProvider>(
       context,
       listen: false,
     );
@@ -209,7 +209,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                           return null;
                         },
                         onTap: () async {
-                          final DateTime? pickedDate = await showDatePicker(
+                          final pickedDate = await showDatePicker(
                             context: context,
                             initialDate: formatter.parse(
                               datePickerController.text,
