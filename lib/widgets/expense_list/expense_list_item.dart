@@ -14,7 +14,7 @@ class ExpenseListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 16, right: 8, top: 16, bottom: 16),
+      padding: const EdgeInsets.only(left: 16, right: 8, top: 16, bottom: 16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -40,7 +40,7 @@ class ExpenseListItem extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
 
                 Text(
                   expense.formattedDate,
@@ -50,7 +50,7 @@ class ExpenseListItem extends StatelessWidget {
             ),
           ),
 
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
 
           Text(
             expense.formattedAmount,
@@ -61,12 +61,12 @@ class ExpenseListItem extends StatelessWidget {
             ),
           ),
 
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
 
           IconButton(
-            icon: Icon(Icons.delete, color: Colors.red),
+            icon: const Icon(Icons.delete, color: Colors.red),
             padding: EdgeInsets.zero,
-            constraints: BoxConstraints(),
+            constraints: const BoxConstraints(),
             onPressed: () {
               expenseProvider.remove(expense);
 

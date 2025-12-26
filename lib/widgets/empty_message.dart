@@ -18,7 +18,7 @@ class EmptyMessage extends StatelessWidget {
             SvgPicture.asset('assets/cat.svg', height: 200),
             Text(
               message,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontSize: 16,
                 fontWeight: FontWeight.w600,

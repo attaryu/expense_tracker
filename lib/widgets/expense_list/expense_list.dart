@@ -28,7 +28,7 @@ class ExpenseList extends StatelessWidget {
         children: [
           _renderTotalSpendingCard(),
 
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
 
           Text(
             listLabel,
@@ -38,7 +38,7 @@ class ExpenseList extends StatelessWidget {
             ),
           ),
 
-          SizedBox(height: 16),
+          const SizedBox(height: 16),
 
           _renderList(),
         ],
@@ -50,7 +50,7 @@ class ExpenseList extends StatelessWidget {
       children: [
         Expanded(child: _renderTotalSpendingCard()),
 
-        SizedBox(width: 16),
+        const SizedBox(width: 16),
 
         Expanded(
           flex: BreakPoint.isTablet(width) ? 1 : 2,
@@ -65,7 +65,7 @@ class ExpenseList extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 12),
+              const SizedBox(height: 12),
 
               _renderList(),
             ],
@@ -83,11 +83,11 @@ class ExpenseList extends StatelessWidget {
 
   ListView _renderList() {
     return ListView.separated(
-      padding: EdgeInsets.only(bottom: 32),
+      padding: const EdgeInsets.only(bottom: 32),
       itemCount: expenseData['expenses'].length,
       shrinkWrap: true,
-      physics: NeverScrollableScrollPhysics(),
-      separatorBuilder: (context, index) => SizedBox(height: 12),
+      physics: const NeverScrollableScrollPhysics(),
+      separatorBuilder: (context, index) => const SizedBox(height: 12),
       itemBuilder: (context, index) => ExpenseListItem(
         expense: expenseData['expenses'][index],
         expenseProvider: expenseProvider,

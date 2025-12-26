@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 setState(() => _selectedPeriod = TimePeriod.values[index]),
             buttons: TimePeriod.values.map((e) => e.label).toList(),
             buttonBuilder: (selected, value, context) => Container(
-              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
               decoration: BoxDecoration(
                 color: selected
                     ? Theme.of(context).colorScheme.primary
@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
 
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
 
           Consumer<ExpenseProvider>(
             builder: (context, value, child) {

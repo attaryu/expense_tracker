@@ -36,7 +36,7 @@ class TotalSpendingCard extends StatelessWidget {
                 color: Colors.white.withValues(alpha: 0.6),
               ),
             ),
-            SizedBox(height: 4),
+            const SizedBox(height: 4),
             Text(
               total,
               style: Theme.of(context).textTheme.titleLarge?.copyWith(

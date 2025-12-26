@@ -41,7 +41,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
         child: ConstrainedBox(
           constraints: BoxConstraints(maxWidth: BreakPoint.mobile),
           child: SingleChildScrollView(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             child: Form(
               key: _formKey,
               child: Column(
@@ -55,7 +55,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
 
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
 
                       Text(
                         'Enter the details below to help you keep track of your expenses!',
@@ -64,7 +64,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                     ],
                   ),
 
-                  SizedBox(height: 32),
+                  const SizedBox(height: 32),
 
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,7 +93,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                     ],
                   ),
 
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
 
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -195,7 +195,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                       SizedBox(height: 8),
                       TextFormField(
                         decoration: InputDecoration(
-                          suffixIcon: Icon(Icons.calendar_today, size: 20),
+                          suffixIcon: const Icon(Icons.calendar_today, size: 20),
                           suffixIconColor: Theme.of(context).primaryColor,
                         ),
                         controller: datePickerController,
@@ -229,7 +229,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                     ],
                   ),
 
-                  SizedBox(height: 32),
+                  const SizedBox(height: 32),
 
                   ElevatedButton(
                     onPressed: () {
@@ -244,7 +244,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                         );
 
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Text('Expense Saved'),
                             duration: Duration(seconds: 3),
                           ),
@@ -253,7 +253,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                         Navigator.pop(context);
                       }
                     },
-                    child: Text('Save'),
+                    child: const Text('Save'),
                   ),
                 ],
               ),
