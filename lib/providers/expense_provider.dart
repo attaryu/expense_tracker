@@ -51,7 +51,7 @@ class ExpenseProvider extends ChangeNotifier {
           .toList();
 
       return {
-        'expenses': todayExpenses,
+        'expenses': _sortingExpense(todayExpenses),
         'total': _calculateTotalExpense(todayExpenses),
       };
     }
@@ -69,7 +69,7 @@ class ExpenseProvider extends ChangeNotifier {
           .toList();
 
       return {
-        'expenses': thisWeekExpenses,
+        'expenses': _sortingExpense(thisWeekExpenses),
         'total': _calculateTotalExpense(thisWeekExpenses),
       };
     }
@@ -84,12 +84,15 @@ class ExpenseProvider extends ChangeNotifier {
           .toList();
 
       return {
-        'expenses': thisMonthExpenses,
+        'expenses': _sortingExpense(thisMonthExpenses),
         'total': _calculateTotalExpense(thisMonthExpenses),
       };
     }
 
-    return {'expenses': _expenses, 'total': _calculateTotalExpense(_expenses)};
+    return {
+      'expenses': _sortingExpense(_expenses),
+      'total': _calculateTotalExpense(_expenses),
+    };
   }
 
   void add(ExpenseModel expense) {
@@ -111,5 +114,9 @@ class ExpenseProvider extends ChangeNotifier {
     );
 
     return formatter.format(total);
+  }
+
+  List<ExpenseModel> _sortingExpense(List<ExpenseModel> expenses) {
+    return expenses..sort((a, b) => b.date.compareTo(a.date));
   }
 }
