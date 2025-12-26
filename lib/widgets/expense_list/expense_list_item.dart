@@ -14,7 +14,7 @@ class ExpenseListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(left: 16, top: 16, bottom: 16),
+      padding: EdgeInsets.only(left: 16, right: 8, top: 16, bottom: 16),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(12),
@@ -60,6 +60,8 @@ class ExpenseListItem extends StatelessWidget {
               fontSize: 12,
             ),
           ),
+
+          SizedBox(width: 8),
 
           IconButton(
             icon: Icon(Icons.delete, color: Colors.red),
