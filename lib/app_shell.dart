@@ -1,4 +1,5 @@
 import 'package:expense_tracker/screens/add_expense_screen.dart';
+import 'package:expense_tracker/screens/history_screen.dart';
 import 'package:expense_tracker/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -11,10 +12,7 @@ class AppShell extends StatefulWidget {
 
 class _AppShellState extends State<AppShell> {
   int _currentIndex = 0;
-  static const List<Widget> _screens = [
-    HomeScreen(),
-    Center(child: Text('History Screen')),
-  ];
+  static const List<Widget> _screens = [HomeScreen(), HistoryScreen()];
 
   @override
   Widget build(BuildContext context) {

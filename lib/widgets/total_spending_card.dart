@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
 class TotalSpendingCard extends StatelessWidget {
-  const TotalSpendingCard({super.key, required this.total});
+  const TotalSpendingCard({
+    super.key,
+    required this.total,
+    this.label = 'Spend so far',
+  });
 
   final String total;
+  final String label;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +31,7 @@ class TotalSpendingCard extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Spend so far',
+              label,
               style: Theme.of(context).textTheme.bodySmall?.copyWith(
                 color: Colors.white.withValues(alpha: 0.6),
               ),
