@@ -17,8 +17,8 @@ class _AppShellState extends State<AppShell> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_currentIndex],
-      backgroundColor: Colors.black.withValues(alpha: 0.1),
+      body: SafeArea(child: _screens[_currentIndex]),
+      backgroundColor: Colors.white.withValues(alpha: 0.95),
       bottomNavigationBar: SizedBox(
         height: 65,
         child: BottomNavigationBar(
