@@ -1,4 +1,5 @@
 import 'package:intl/intl.dart';
+import 'package:uuid/uuid.dart';
 
 class ExpenseModel {
   final String id;
@@ -12,7 +13,7 @@ class ExpenseModel {
     required this.description,
     required this.category,
     required this.date,
-  }) : id = DateTime.now().millisecondsSinceEpoch.toString();
+  }) : id = const Uuid().v4();
 
   String get formattedDate {
     final DateFormat formatter = DateFormat('dd MMM yyyy');
