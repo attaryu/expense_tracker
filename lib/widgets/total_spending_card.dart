@@ -37,12 +37,24 @@ class TotalSpendingCard extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 4),
-            Text(
-              total,
-              style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 24,
+            LayoutBuilder(
+              builder: (context, constraints) => ConstrainedBox(
+                constraints: BoxConstraints(
+                  maxWidth: constraints.maxWidth * 0.7,
+                ),
+                child: Tooltip(
+                  message: total,
+                  child: Text(
+                    total,
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ),
               ),
             ),
           ],

@@ -87,6 +87,14 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                             return 'Please enter a valid number';
                           }
 
+                          if (double.parse(value) <= 0) {
+                            return 'Amount must be greater than zero';
+                          }
+
+                          if (double.parse(value) > 1000000000) {
+                            return 'Amount must be less than 1,000,000,000';
+                          }
+
                           return null;
                         },
                       ),
@@ -195,7 +203,10 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                       SizedBox(height: 8),
                       TextFormField(
                         decoration: InputDecoration(
-                          suffixIcon: const Icon(Icons.calendar_today, size: 20),
+                          suffixIcon: const Icon(
+                            Icons.calendar_today,
+                            size: 20,
+                          ),
                           suffixIconColor: Theme.of(context).primaryColor,
                         ),
                         controller: datePickerController,

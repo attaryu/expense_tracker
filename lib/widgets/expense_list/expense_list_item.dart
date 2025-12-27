@@ -1,3 +1,4 @@
+import 'package:expense_tracker/core/constants/breakpoint.dart';
 import 'package:expense_tracker/providers/expense_provider.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +14,8 @@ class ExpenseListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return Container(
       padding: const EdgeInsets.only(left: 16, right: 8, top: 16, bottom: 16),
       decoration: BoxDecoration(
@@ -52,12 +55,24 @@ class ExpenseListItem extends StatelessWidget {
 
           const SizedBox(width: 8),
 
-          Text(
-            expense.formattedAmount,
-            style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.w600,
-              fontSize: 12,
+          ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: BreakPoint.isTablet(width) || BreakPoint.isMobile(width)
+                  ? 75
+                  : 120,
+            ),
+            child: Tooltip(
+              message: expense.formattedAmount,
+              child: Text(
+                expense.formattedAmount,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 12,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
           ),
 
