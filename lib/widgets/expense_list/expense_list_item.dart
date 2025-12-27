@@ -12,8 +12,50 @@ class ExpenseListItem extends StatelessWidget {
   final dynamic expense;
   final ExpenseProvider expenseProvider;
 
+  void _deleteHandler(BuildContext context) {
+    expenseProvider.remove(expense);
+
+    ScaffoldMessenger.of(context)
+      ..clearSnackBars()
+      ..showSnackBar(
+        SnackBar(
+          content: Text('Expense "${expense.description}" deleted'),
+          action: SnackBarAction(
+            label: 'Undo',
+            onPressed: () => expenseProvider.add(expense),
+          ),
+          persist: false,
+          duration: Duration(seconds: 5),
+        ),
+      );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
+    if (BreakPoint.isMobile(width)) {
+      return Dismissible(
+        key: ValueKey(expense.id),
+        direction: DismissDirection.endToStart,
+        background: Container(
+          alignment: Alignment.centerRight,
+          padding: const EdgeInsets.only(right: 20),
+          decoration: BoxDecoration(
+            color: Colors.red,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: const Icon(Icons.delete, color: Colors.white),
+        ),
+        onDismissed: (_) => _deleteHandler(context),
+        child: _renderList(context),
+      );
+    }
+
+    return _renderList(context);
+  }
+
+  Container _renderList(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
 
     return Container(
@@ -76,34 +118,24 @@ class ExpenseListItem extends StatelessWidget {
             ),
           ),
 
-          const SizedBox(width: 8),
-
-          IconButton(
-            icon: const Icon(Icons.delete, color: Colors.red),
-            padding: EdgeInsets.zero,
-            constraints: const BoxConstraints(),
-            onPressed: () {
-              expenseProvider.remove(expense);
-
-              ScaffoldMessenger.of(context)
-                ..clearSnackBars()
-                ..showSnackBar(
-                  SnackBar(
-                    content: Text('Expense "${expense.description}" deleted'),
-                    action: SnackBarAction(
-                      label: 'UNDO',
-                      onPressed: () {
-                        expenseProvider.add(expense);
-                      },
-                    ),
-                    persist: false,
-                    duration: Duration(seconds: 2),
-                  ),
-                );
-            },
-          ),
+          if (!BreakPoint.isMobile(width)) _renderDeleteButton(context),
         ],
       ),
+    );
+  }
+
+  Row _renderDeleteButton(BuildContext context) {
+    return Row(
+      children: [
+        const SizedBox(width: 8),
+
+        IconButton(
+          icon: const Icon(Icons.delete, color: Colors.red),
+          padding: EdgeInsets.zero,
+          constraints: const BoxConstraints(),
+          onPressed: () => _deleteHandler(context),
+        ),
+      ],
     );
   }
 }
